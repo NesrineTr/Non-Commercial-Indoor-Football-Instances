@@ -1,0 +1,66 @@
+Parameters: 
+Inst:	5
+Alpha:	0.25
+Beta:	0.03
+Iter:	50
+Tabu:	4
+Seed: 21
+*** Initialization ***
+Best init.method inst 5: 0
+Cost initialization inst 5: 1155
+*** Tabu phase ***
+New best: 1154 (0.00332575)
+New best: 1147 (0.00398512)
+New best: 1140 (0.00421697)
+New best: 1139 (0.00525261)
+New best: 1130 (0.00548163)
+New best: 1129 (0.00605555)
+New best: 1128 (0.00751974)
+New best: 1126 (0.00969487)
+New best: 1113 (0.0127738)
+New best: 1112 (0.0162765)
+New best: 1111 (0.0200919)
+New best: 1110 (0.0215533)
+New best: 1108 (0.0217811)
+New best: 1107 (0.0240698)
+New best: 1106 (0.0263512)
+New best: 1105 (0.0278005)
+New best: 1104 (0.0280229)
+New best: 1102 (0.0302648)
+New best: 1101 (0.193446)
+New best: 1100 (0.19587)
+New best: 1099 (0.197077)
+New best: 1098 (0.197644)
+New best: 1097 (0.199828)
+New best: 1094 (0.202773)
+New best: 1093 (0.225647)
+New best: 1092 (0.243177)
+New best: 1091 (0.342366)
+New best: 1090 (0.345612)
+New best: 1087 (0.346563)
+New best: 1084 (0.347178)
+New best: 1083 (0.349987)
+New best: 1081 (0.350987)
+New best: 1080 (0.356764)
+New best: 1079 (0.362549)
+New best: 1078 (0.374274)
+New best: 1077 (0.412742)
+New best: 1076 (0.430214)
+New best: 1074 (0.813113)
+New best: 1073 (0.819302)
+New best: 1072 (0.828611)
+New best: 1070 (0.91357)
+New best: 1069 (0.915049)
+New best: 1066 (3.57848)
+New best: 1065 (3.58007)
+New best: 1064 (3.58506)
+New best: 1063 (3.5853)
+New best: 1060 (3.5884)
+New best: 1058 (3.59332)
+New best: 1057 (3.59624)
+New best: 86 (9.98323)
+New best: 83 (9.98503)
+New best: 82 (9.99162)
+New best: 78 (10.0245)
+New best: 76 (10.0382)
+Best found for instance 5: 76

@@ -1,0 +1,62 @@
+:- use_module(library(clpfd)).
+
+team(1..15). 
+slot(1..274).
+
+:- dynamic scheduled/3.
+
+% Predicate to check if two teams are not the same
+not_same_team(T1, T2) :- T1 #\= T2.
+
+% Predicate to check if two slots are not the same
+not_same_slot(S1, S2) :- S1 #\= S2.
+
+% Constraint 2 & 3: Home team availability and away team unavailability are respected
+home_away_respected(Slot, T1, T2) :-
+    home_availability(Slot, T1),
+    away_availability(Slot, T2),
+    not(forbidden(Slot, T1)),
+    not(forbidden(Slot, T2)).
+
+% Constraint 1: Each team plays a home game against each other team at most once
+at_most_once(T1, T2) :- 
+    not_same_team(T1, T2),
+    not_same_slot(Slot1, Slot2),
+    scheduled(T1, T2, Slot1),
+    scheduled(T1, T2, Slot2).
+
+% Constraint 4: Ensure each team plays only one game in a game time slot
+one_game_per_slot(T1) :- 
+    team(T1),
+    home_availability(S, T1),
+    count(S, T1, #=<, 1).
+
+
+% Constraint 5: Each team plays at most 2 games in a period of R_max time slots
+at_most_2_games(R_max,T1) :- 
+    team(T1),
+    slot(S),
+    S_end is S + R_max - 1,
+    findall(Slot, (between(S, S_end, Slot), scheduled(T1, _, Slot)), TeamSlots),
+    count(TeamSlots, #=, Count),
+    Count #=< 2.
+
+
+% Constraint 6: There are at least m time slots between two games with the same pair of teams
+at_least_m_slots_apart(M, T1, T2) :-
+    scheduled(T1, T2, Slot1),
+    scheduled(T2, T1, Slot2),
+    Slot1 #\= Slot2,
+    abs(Slot1 - Slot2) #>= M.
+
+% Solve the scheduling problem
+schedule_games(R_max, M) :-
+    team(T1),team(T2), slot(S),
+    scheduled(T1, T2, S), 
+    home_away_respected(S, T1, T2),
+    at_most_once(T1, T2),
+    one_game_per_slot(T1),
+    at_most_2_games(R_max, T1),
+    at_least_m_slots_apart(M, T1, T2),
+    label([T1,T2,S]).
+

@@ -1,0 +1,16 @@
+Parameters: 
+Inst:	29
+Alpha:	0.25
+Beta:	0.03
+Iter:	50
+Tabu:	4
+Seed: 39
+*** Initialization ***
+Best init.method inst 29: 0
+Cost initialization inst 29: 27
+*** Tabu phase ***
+New best: 23 (0.00658332)
+New best: 20 (0.00812316)
+New best: 10 (0.00943682)
+New best: 0 (0.0105739)
+Best found for instance 29: 0
